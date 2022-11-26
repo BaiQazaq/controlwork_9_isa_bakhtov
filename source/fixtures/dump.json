@@ -1,0 +1,186 @@
+[
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "admin",
+    "permissions": [
+      [
+        "change_photo",
+        "photos",
+        "photo"
+      ],
+      [
+        "delete_photo",
+        "photos",
+        "photo"
+      ]
+    ]
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3yqk7i1dsbwhrjy2sh5h58p3upjjtbjn",
+  "fields": {
+    "session_data": "e30:1oysld:NhzMTYyrNAAAA46axSGDJ31_V3gfVNjMiMSWc7T5_uc",
+    "expire_date": "2022-12-10T10:50:41.147Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5a1msn46b86t9k2isjk55251a0o1o9y8",
+  "fields": {
+    "session_data": ".eJxVjDsOwyAQBe9CHSHAeFmlTJ8zWLA8BycRlvyprNw9QnKRtG9m3qGGuG9l2Fcsw5TVVXXq8rulKC_UBvIz1sesZa7bMiXdFH3SVd_njPftdP8OSlxLq0HC5LwQG9-HQBTtKBCAQwpiLcMnF3weDQsIuWfHZMXAJVBH6vMF7MA4Gg:1oytyY:YDwrgYDDSShUcs6dkefPblBSJ8IeUdTGaZpiDf6TZXU",
+    "expire_date": "2022-12-10T12:08:06.279Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ghs7tkiaccjazjf9lndlji1x5kcxisy7",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAURP-FtSElNHBx6d5vINwHUjWQlHZl_Hcl6UJ3kzln5qVi2rcS9y5rXFidlVGn3w4TPaQOwPdUb01Tq9u6oB6KPmjX18byvBzu30FJvXzXaCVnxjlNM1uxIj4AoIXsJRgHFALg5ImtEZBgYSSDOTjySOxEvT8LvDjq:1oysnp:dohGRKGZEpgnPTZZZmBs-j-7ATzbhFxf-mV4wq4ku14",
+    "expire_date": "2022-12-10T10:52:57.438Z"
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$TKGTHKqoxhTWnvMe2Wi8ZL$t04IwpibkABzQcTw3C1+LqHXwCadrExz1Rgf8YgXFE0=",
+    "last_login": "2022-11-26T11:26:21.548Z",
+    "is_superuser": false,
+    "first_name": "Isa",
+    "last_name": "Bahyt",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-11-26T10:50:41.035Z",
+    "email": "isa@gmail.com",
+    "username": "isa",
+    "avatar": "",
+    "created_at": "2022-11-26T10:50:41.138Z",
+    "changed_at": "2022-11-26T10:50:41.138Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "groups": [],
+    "user_permissions": [],
+    "liked_photo": [],
+    "commented_photos": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$ZmWjbvdUGP9mKore9FiLUb$1MaaQTyE1PtL8Su9L0nQnWT4sRPbofvzbDkfR1lo/Is=",
+    "last_login": "2022-11-26T12:01:15.494Z",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-11-26T10:59:09.955Z",
+    "email": "admin@gmail.com",
+    "username": "admin@gmail.com",
+    "avatar": "",
+    "created_at": "2022-11-26T10:59:10.049Z",
+    "changed_at": "2022-11-26T10:59:10.049Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "groups": [],
+    "user_permissions": [],
+    "liked_photo": [],
+    "commented_photos": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$390000$YWF2WlV0WkODck8pnQIwiJ$TInr1KLShP02gO1iX7d5aq4Nuwgbb6NSuM2nT1zCFEc=",
+    "last_login": "2022-11-26T12:08:06.278Z",
+    "is_superuser": false,
+    "first_name": "Musa",
+    "last_name": "Sultan",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-11-26T11:16:41.981Z",
+    "email": "musa@gmail.com",
+    "username": "musa",
+    "avatar": "avatars/ava.jpeg",
+    "created_at": "2022-11-26T11:16:42.100Z",
+    "changed_at": "2022-11-26T11:16:42.100Z",
+    "deleted_at": null,
+    "is_deleted": false,
+    "groups": [],
+    "user_permissions": [],
+    "liked_photo": [],
+    "commented_photos": []
+  }
+},
+{
+  "model": "photos.photo",
+  "pk": 1,
+  "fields": {
+    "sign": "Logo",
+    "image": "photos/gas_XhTi5T9.jpeg",
+    "author": [
+      "isa@gmail.com"
+    ],
+    "created_at": "2022-11-26T10:58:24.266Z",
+    "changed_at": "2022-11-26T10:58:24.266Z",
+    "deleted_at": null,
+    "is_deleted": false
+  }
+},
+{
+  "model": "photos.photo",
+  "pk": 2,
+  "fields": {
+    "sign": "Cool",
+    "image": "photos/some.jpeg",
+    "author": [
+      "musa@gmail.com"
+    ],
+    "created_at": "2022-11-26T12:10:39.648Z",
+    "changed_at": "2022-11-26T12:10:39.648Z",
+    "deleted_at": null,
+    "is_deleted": false
+  }
+},
+{
+  "model": "photos.choice",
+  "pk": 1,
+  "fields": {
+    "mark": "Choice",
+    "liked_by": [
+      "musa@gmail.com"
+    ],
+    "photo": 1
+  }
+},
+{
+  "model": "photos.choice",
+  "pk": 2,
+  "fields": {
+    "mark": "Choice",
+    "liked_by": [
+      "musa@gmail.com"
+    ],
+    "photo": 2
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2022-11-26T11:20:47.641Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "object_id": "1",
+    "object_repr": "admin",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+}
+]
