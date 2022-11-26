@@ -29,23 +29,21 @@
 
     <p>Понравившиеся посты {{ user_obj.liked_posts.count }}
     
-    {% comment %} <p>Подписки {{ user_obj.subscriptions.count }} {% endcomment %}
+    
     
     <p>Публикации {{user_obj.posts.count }}
     
-    {% comment %} <div>
-        {% include 'partial/subscription.html'  with action_url="" form_method="post" %}
-    </div> {% endcomment %}
 
 
 
     <h2 class="text-center clear">Photos:</h2>
         {% for photo in photos %}
             <div>
-                <p>Post</p>
+                <p>Photo</p>
                 <img src='{{ photo.image.url }}' style="width: 50px">
-                <p>{{ photo.sign }}</p>
-                <p>{{ photo.created_at }}</p>
+                <p>Sign: {{ photo }}</p>
+                <p>Date: {{ photo.created_at }}</p>
+                <p>++++++++++++++++++++++++++++++++</p>
             </div>
         {% endfor %}
 
