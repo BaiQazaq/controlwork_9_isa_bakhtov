@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block menu %}
+
+    <li><a href="{% url 'change' user_obj.pk %}">Редактировать</a></li>
+
+    <li><a href="#">Смена пароля</a></li>
+
+    <li><a href="{% url 'post_creation' user_obj.pk %}">Добавить публикацию</a></li>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.email }}</h1>
+
+    {% if user_obj.avatar %}
+
+        <img class="avatar" src="{{ user_obj.avatar.url }}" width="250" height="250" alt="user picture">
+
+    {% endif %}
+    <img src='{{ user_obj.image.url }}' style="width: 100px">
+    <p>Имя пользователя: {{ user_obj.username }} </p>
+
+    <p>Имя: {{ user_obj.first_name }}</p>
+
+    <p>Фамилия: {{ user_obj.last_name }}</p>
+
+    <p>Дата рождения: {{ user_obj.profile.birth_date|date:'d.m.Y' }}</p>
+
+    <p>Почта: {{ user_obj.email }}</p>
+
+    <p>Пол: {{ user_obj.gender }}</p>
+
+    <p>Понравившиеся посты {{ user_obj.liked_posts.count }}
+    
+    {% comment %} <p>Подписки {{ user_obj.subscriptions.count }} {% endcomment %}
+    
+    <p>Публикации {{user_obj.posts.count }}
+    
+    {% comment %} <div>
+        {% include 'partial/subscription.html'  with action_url="" form_method="post" %}
+    </div> {% endcomment %}
+
+
+
+    <h2 class="text-center clear">Посты:</h2>
+        {% for post in posts %}
+            <div>
+                <p>Post</p>
+                <img src='{{ post.image.url }}' style="width: 50px">
+                <p>{{ post.description }}</p>
+                <p>{{ post.created_at }}</p>
+            </div>
+        {% endfor %}
+    {% comment %} <h2 class="text-center clear">Пoдписки:</h2>
+        {% for sub in subs %}
+            <div>
+                <p>Post</p>
+                <img src='{{ sub.image.url }}' style="width: 50px">
+                <p>{{ sub.description }}</p>
+                <p>{{ sub.created_at }}</p>
+            </div>
+        {% endfor %} {% endcomment %}
+
+{% endblock %}
