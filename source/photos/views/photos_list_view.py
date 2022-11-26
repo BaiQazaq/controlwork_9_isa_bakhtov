@@ -3,7 +3,7 @@ from urllib.parse import urlencode
 from django.db.models import Q
 
 from photos.models import Photo
-from photos.forms import SearchForm
+from photos.forms import SearchForm, ChoiceForm
 
 
 
@@ -42,6 +42,7 @@ class PhotoView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(PhotoView, self).get_context_data(object_list=object_list, **kwargs)
         context['form'] = self.form
+        context['choice_form'] = ChoiceForm()
         if self.search_value:
             if context['photos'] == []:
                 context['text'] = {'text' : 'Photo not found'}

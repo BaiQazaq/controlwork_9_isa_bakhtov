@@ -12,13 +12,13 @@ class GroupPermission(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.groups.filter(name__in=self.groups).exists()
 
-class PhotoUpdateView(GroupPermission,LoginRequiredMixin, UpdateView):
+class PhotoUpdateView(LoginRequiredMixin, UpdateView):
 
     template_name = 'photo_update.html'
     form_class = PhotoForm
     model = Photo
     context_object_name = 'photo'
-    #groups = ['admin', 'user']  
+    groups = ['admin', 'user']  
     
     
     def get_success_url(self):

@@ -5,6 +5,7 @@ from photos.views.photos_list_view import PhotoView
 from photos.views.photo_detail_view import PhotoDetailView
 from photos.views.photo_delete_view import PhotoDeleteView
 from photos.views.photo_update_view import PhotoUpdateView
+from photos.views.choice_photo_view import ChoiceView
 
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     path("photo/<int:pk>/update", PhotoUpdateView.as_view(), name='photo_update'),
     path("photo/<int:pk>/delete/", PhotoDeleteView.as_view(), name= "photo_delete"),
     path("photo/<int:pk>/confirm_delete/", PhotoDeleteView.as_view(), name= "confirm_delete"),
+    path("photo/<int:pk>/like/add/", ChoiceView.as_view(), name="choice"),
 ]

@@ -1,0 +1,11 @@
+{% load static  %}
+{% load django_bootstrap5 %}
+
+
+<p>{{ text }}</p>
+<form class="cart-add w-25" action="{% url 'choice' photo.pk  %}" method="POST">
+    {% csrf_token %}
+    
+    {% bootstrap_form choice_form %}
+    {% bootstrap_button button_type="submit" content='Add to choice' %}
+</form>

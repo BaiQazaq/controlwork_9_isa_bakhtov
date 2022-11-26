@@ -17,7 +17,11 @@
         <p>Date - {{ photo.created_at }}</p>
         <a href="{% url 'photo_detail' photo.pk %}">View detail</a></p>
     </div>
+        {% if user.is_authenticated %}
+            {% include 'partial/choice.html' %}
+        {% endif %}
     {% endfor %}
+
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif%}

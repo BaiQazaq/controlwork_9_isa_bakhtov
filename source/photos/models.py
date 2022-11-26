@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-# from django.db.models import TextChoices
+from django.db.models import TextChoices
 
 
 class Photo(models.Model):
@@ -12,3 +12,17 @@ class Photo(models.Model):
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
     deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
     is_deleted = models.BooleanField(verbose_name="Удалено", default=False, null=False)
+    
+    
+class StatusChoices(TextChoices):
+    LIKE = 'Choice'
+
+
+class Choice(models.Model):
+    mark = models.CharField(verbose_name='Mark', choices=StatusChoices.choices, max_length=100, default=StatusChoices.LIKE)
+    liked_by = models.ForeignKey(verbose_name='Автор', to=get_user_model(), related_name='likes', null=False,
+                               blank=False,
+                               on_delete=models.CASCADE)
+    photo = models.ForeignKey(verbose_name='Photo', to='photos.Photo', related_name='likes', null=False,
+                             blank=False, on_delete=models.CASCADE)
+    
