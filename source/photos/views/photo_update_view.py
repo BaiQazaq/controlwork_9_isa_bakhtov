@@ -18,7 +18,7 @@ class PhotoUpdateView(GroupPermission,LoginRequiredMixin, UpdateView):
     form_class = PhotoForm
     model = Photo
     context_object_name = 'photo'
-    groups = ['admin', 'user']  
+    #groups = ['admin', 'user']  
     
     
     def get_success_url(self):

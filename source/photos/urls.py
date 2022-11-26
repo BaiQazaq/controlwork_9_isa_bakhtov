@@ -9,9 +9,9 @@ from photos.views.photo_update_view import PhotoUpdateView
 
 urlpatterns = [
     path("", PhotoView.as_view(), name='index'),
-    path("add/", PhotoCreate.as_view(), name='photo_creation'),
-    path("detail/<int:pk>", PhotoDetailView.as_view(), name='photo_detail'),
-    path("update/<int:pk>", PhotoUpdateView.as_view(), name='photo_update'),
+    path("photo/add/", PhotoCreate.as_view(), name='photo_creation'),
+    path("photo/<int:pk>/detail", PhotoDetailView.as_view(), name='photo_detail'),
+    path("photo/<int:pk>/update", PhotoUpdateView.as_view(), name='photo_update'),
     path("photo/<int:pk>/delete/", PhotoDeleteView.as_view(), name= "photo_delete"),
     path("photo/<int:pk>/confirm_delete/", PhotoDeleteView.as_view(), name= "confirm_delete"),
 ]

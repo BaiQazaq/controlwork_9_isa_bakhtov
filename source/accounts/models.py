@@ -1,73 +1,54 @@
 # from django.db.models import TextChoices
-# from django.contrib.auth.models import AbstractUser
-# from django.db import models
-# from django.contrib.auth import get_user_model
-
-# from accounts.managers import UserManager
-
-# class GenderChoices(TextChoices):
-#     MAEL = 'male', 'мужчина'
-#     FEMALE = 'female', 'женшина'
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 
-# class Account(AbstractUser):
-#     email = models.EmailField(verbose_name='Электронная почта', unique=True, blank=True)
+from accounts.managers import UserManager
 
-#     avatar = models.ImageField(
-#         null=True,
-#         blank=True,
-#         upload_to='avatars/',
-#         verbose_name='Аватар'
-#     )
+class Account(AbstractUser):
+    email = models.EmailField(verbose_name='Электронная почта', unique=True, blank=True)
+
+    username = models.CharField(
+        verbose_name='Имя',
+        max_length=100,
+        null=False,
+        blank=False,
+        unique=True
+    )
+
+    avatar = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to='avatars/',
+        verbose_name='Аватар'
+    )
     
-#     liked_posts = models.ManyToManyField(
-#         verbose_name='Понравившиеся публикации',
-#         to='posts.Post',
-#         related_name='user_likes',
-#         blank=True
-#     )
-#     subscriptions = models.ManyToManyField(
-#         verbose_name='Подписки',
-#         to='accounts.Subs',
-#         related_name='subscribers',
-#         blank=True
-#     )
-#     commented_posts = models.ManyToManyField(
-#         verbose_name='Прокомментированные публикации',
-#         to='posts.Post',
-#         related_name='user_comments',
-#         blank=True
-#     )
-#     user_info = models.CharField(
-#         verbose_name='Информация о пользователе',
-#         null=True,
-#         blank=True,
-#         max_length=200
-#     )
-#     phone_num = models.IntegerField(
-#         verbose_name = 'Номер телефона',
-#         null=True,
-#         blank=True,
-#         default=None
-#     )
-#     gender = models.CharField(
-#         verbose_name='Пол',
-#         choices=GenderChoices.choices,
-#         max_length=100,
-#         default='Gender did not choose')
-#     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
-#     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
-#     deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
-#     is_deleted = models.BooleanField(verbose_name="Удалено", default=False, null=False)
+    liked_photo = models.ManyToManyField(
+        verbose_name='Понравившиеся публикации',
+        to='photos.Photo',
+        related_name='user_likes',
+        blank=True
+    )
+    commented_photos = models.ManyToManyField(
+        verbose_name='Прокомментированные фото',
+        to='photos.Photo',
+        related_name='user_comments',
+        blank=True
+    )
+    
+    created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+    changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
+    deleted_at = models.DateTimeField(verbose_name='Дата удаления', null=True, default=None)
+    is_deleted = models.BooleanField(verbose_name="Удалено", default=False, null=False)
     
     
     
-#     USERNAME_FIELD = 'email'
-#     REQUIRED_FIELDS = []
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
-#     objects = UserManager()
+    objects = UserManager()
 
-#     class Meta:
-#         verbose_name = 'Профиль'
-#         verbose_name_plural = 'Профили'
+    class Meta:
+        verbose_name = 'Профиль'
+        verbose_name_plural = 'Профили'
         
