@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  Photo {{ photo.pk }}
+{% endblock%}
+
+{% block header %}
+  <h1>About the photo {{ photo.pk }}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="detail-photo">
+        <img src='{{ photo.image.url }}' style="width: 180px">
+        <p><b>Sign:</b>  {{ photo.sign }}</p>
+        <p>Author - {{ photo.author }}</p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'photo_update' photo.pk %}">Change</a></p>
+        <a href="{% url 'photo_delete' photo.pk %}">Delete</a></p>
+        {% endif %}
+    </div>
+{% endblock %}

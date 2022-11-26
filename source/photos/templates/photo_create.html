@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add photo
+{% endblock %}
+{% block header %}
+<h1>New photo </h1>
+{% endblock %}
+{% block content %}
+    <form action="{% url 'photo_creation' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form">
+            {% include 'partial/create_form.html' with button_text='Add'%}
+        </div>
+    </form>
+{% endblock %}
+{% block link %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title%}Gallerey{% endblock %}
+
+{% block header %}
+    <h1>Photos</h1>
+{% endblock %}
+
+{% block content %}
+<h1> Gallerey </h1>
+{% include 'partial/search.html' %}
+    {% for photo in photos %}
+    <div class="wrapper">
+        <img src='{{ photo.image.url }}' style="width: 180px">
+        <p>Sign - {{ photo.sign }}</p>
+        <p>Author - {{ photo.author }}</p>
+        <p>Date - {{ photo.created_at }}</p>
+        <a href="{% url 'photo_detail' photo.pk %}">View detail</a></p>
+    </div>
+    {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif%}
+{% endblock%}
+{% block link %}
+{% endblock%}

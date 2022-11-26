@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Photo - {{ photo.sign }}
+{% endblock %}
+
+{% block menu %}
+  <li> 
+    <a href="{% url 'photo_creation' %}">Photo add</a>
+  </li>
+{% endblock %}
+
+{% block content %}
+<h1>Are you sure you want to delete the photo?</h1>
+    <img src='{{ photo.image.url }}' style="width: 180px">
+    <p><b>Sign:</b>  {{ photo.sign }}</p>
+    <p>Author {{ photo.author }}</p>
+<form action="{% url 'confirm_delete' photo.pk %}" method='post'>
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+    <a href="{% url 'index' %}">Cancel</a>
+</form>
+{% endblock%}

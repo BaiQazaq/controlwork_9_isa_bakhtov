@@ -57,7 +57,7 @@ ROOT_URLCONF = 'gallery.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,6 +82,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
+
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
 
 
 # Password validation
@@ -118,18 +131,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
 
 
-LOGIN_REDIRECT_URL = 'index'
-LOGOUT_REDIRECT_URL = 'index'
-LOGIN_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
